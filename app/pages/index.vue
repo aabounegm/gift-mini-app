@@ -1,13 +1,20 @@
 <script setup lang="ts">
-const route = useRoute();
+import {
+  MainButton,
+  useWebApp,
+  useWebAppPopup,
+  useWebAppMainButton,
+} from "vue-tg";
+
+const { isMainButtonVisible } = useWebAppMainButton();
+const { initDataUnsafe } = useWebApp();
+const { showAlert } = useWebAppPopup();
 </script>
 
 <template>
-  <div>
-    <h1>Nuxt Routing set up successfully!</h1>
-    <p>Current route: {{ route.path }}</p>
-    <a href="https://nuxt.com/docs/getting-started/routing" target="_blank">
-      Learn more about Nuxt Routing
-    </a>
-  </div>
+  <MainButton text="Test" @click="() => showAlert('Hello!')" />
+  <div>Username: {{ initDataUnsafe.user?.first_name }}</div>
+  <button @click="isMainButtonVisible = !isMainButtonVisible">
+    Toggle main button
+  </button>
 </template>

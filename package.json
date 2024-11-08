@@ -14,9 +14,11 @@
     "grammy": "^1.31.0",
     "nuxt": "^3.14.159",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-tg": "^0.8.0"
   },
   "devDependencies": {
+    "@types/telegram-web-app": "^7.10.1",
     "prettier": "^3.3.3"
   }
 }
