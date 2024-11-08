@@ -18,6 +18,7 @@
     "vue-tg": "^0.8.0"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/telegram-web-app": "^7.10.1",
     "prettier": "^3.3.3"
   }
