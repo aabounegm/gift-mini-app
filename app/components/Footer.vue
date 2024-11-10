@@ -7,7 +7,7 @@ import profile from "~/assets/icons/profile.svg";
 const links = [
   {
     text: "Store",
-    to: "/",
+    to: "/store",
     iconSrc: store,
   },
   {
