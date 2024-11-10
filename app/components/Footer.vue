@@ -35,11 +35,7 @@ const links = [
       :to="to"
       class="footer-link"
     >
-      <div
-        :src="iconSrc"
-        class="mx-auto icon"
-        :style="{ maskImage: `url(${iconSrc})` }"
-      />
+      <div class="mx-auto icon" :style="{ maskImage: `url(${iconSrc})` }" />
       <span class="inline-block text-xs my-1">
         {{ text }}
       </span>
@@ -49,10 +45,10 @@ const links = [
 
 <style lang="css" scoped>
 footer {
-  background-color: #f0f0f0;
+  background-color: #f1f1f2bf;
 }
 .footer-link {
-  color: #959595;
+  color: theme("colors.icons");
 }
 .footer-link .icon {
   mask-size: 100%;
@@ -61,12 +57,12 @@ footer {
   mask-position: center;
   width: 24px;
   height: 24px;
-  background-color: #959595;
+  background-color: theme("colors.icons");
 }
 .footer-link.router-link-active {
-  color: #3478f6;
+  color: theme("colors.primary");
 }
 .footer-link.router-link-active .icon {
-  background-color: #3478f6;
+  background-color: theme("colors.primary");
 }
 </style>
