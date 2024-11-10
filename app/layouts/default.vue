@@ -5,8 +5,10 @@ const { isMainButtonVisible } = useWebAppMainButton();
 </script>
 
 <template>
-  <main :class="{ 'mb-20': !isMainButtonVisible }">
-    <slot />
-  </main>
-  <Footer v-if="!isMainButtonVisible" />
+  <div>
+    <main :class="{ 'mb-20': !isMainButtonVisible }">
+      <slot />
+    </main>
+    <Footer v-if="!isMainButtonVisible" />
+  </div>
 </template>

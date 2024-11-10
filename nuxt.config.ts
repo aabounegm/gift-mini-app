@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     head: {
       script: [{ src: "https://telegram.org/js/telegram-web-app.js" }],
     },
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
+    },
   },
   routeRules: {
     "/": {

@@ -7,17 +7,19 @@ const { data: gifts } = useFetch("/api/gifts", {
 </script>
 
 <template>
-  <header class="text-center px-2 py-6">
-    <div
-      class="gift-icon bg-primary mx-auto"
-      :style="{ maskImage: `url(${giftIcon})` }"
-    />
-    <h1 class="text-2xl font-semibold my-2">Buy and send gifts</h1>
-    <p>Unique gifts for everyone by Crypto Pay.</p>
-  </header>
-  <main class="grid grid-cols-2 gap-4 p-4">
-    <StoreGiftCard v-for="gift in gifts" :gift />
-  </main>
+  <div>
+    <header class="text-center px-2 py-6">
+      <div
+        class="gift-icon bg-primary mx-auto"
+        :style="{ maskImage: `url(${giftIcon})` }"
+      />
+      <h1 class="text-2xl font-semibold my-2">Buy and send gifts</h1>
+      <p>Unique gifts for everyone by Crypto Pay.</p>
+    </header>
+    <main class="grid grid-cols-2 gap-4 p-4">
+      <StoreGiftCard v-for="gift in gifts" :gift />
+    </main>
+  </div>
 </template>
 
 <style scoped>
