@@ -16,7 +16,8 @@
     "nuxt-mongoose": "^1.0.6",
     "vue": "latest",
     "vue-router": "latest",
-    "vue-tg": "^0.8.0"
+    "vue-tg": "^0.8.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
