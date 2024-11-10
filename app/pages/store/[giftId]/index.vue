@@ -25,11 +25,22 @@ const iconMap = {
   TON: tonFilled,
   ETH: ethFilled,
 };
+
+const buyingConfirm = ref(false);
 </script>
 
 <template>
   <BackButton @click="$router.back()" />
-  <MainButton text="Buy gift" @click="" />
+  <MainButton
+    v-if="buyingConfirm"
+    :text="`Pay ${gift?.price} ${gift?.currency}`"
+    @click="$router.push(`/store/${gift?._id}/purchased`)"
+  />
+  <MainButton v-else text="Buy gift" @click="buyingConfirm = true" />
+
+  <BottomSheet v-model="buyingConfirm">
+    <StoreGiftInvoice v-if="gift" :gift="gift" />
+  </BottomSheet>
 
   <header
     v-if="gift"
