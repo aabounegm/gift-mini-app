@@ -5,22 +5,21 @@ import type { Transaction } from "~~/shared/types";
 export const TransactionModel = defineMongooseModel<Transaction>({
   name: "Transaction",
   schema: {
-    // @ts-ignore BigInt vs Number
     sender: {
       type: SchemaTypes.BigInt, // 64-bit integer in Mongo, not JavaScript's arbitrarily large BigInt
+      ref: UserModel,
       required: true,
-      transform: (v: bigint) => Number(v),
     },
     recipient: {
       type: SchemaTypes.BigInt,
+      ref: UserModel,
       required() {
         return this.transactionType === "transfer";
       },
-      transform: (v: bigint) => Number(v),
     },
     gift: {
       type: SchemaTypes.ObjectId,
-      ref: "Gift",
+      ref: GiftModel,
       required: true,
     },
     // quantity: SchemaTypes.Number, // Hard-coded as 1 for simplicity

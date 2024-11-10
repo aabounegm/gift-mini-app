@@ -16,7 +16,8 @@ const iconMap = {
 </script>
 
 <template>
-  <div
+  <NuxtLink
+    :to="`/store/${gift._id}`"
     class="grid gap-2 rounded-xl p-3"
     :style="{
       background: `url(${tgPattern}), linear-gradient(${gift.color}33, ${gift.color}1a)`,
@@ -37,7 +38,7 @@ const iconMap = {
       />
       <span>{{ gift.price }} {{ gift.currency }}</span>
     </button>
-  </div>
+  </NuxtLink>
 </template>
 
 <style lang="css" scoped>

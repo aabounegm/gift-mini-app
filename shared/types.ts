@@ -1,4 +1,5 @@
 export interface Gift {
+  _id: string;
   name: string;
   price: number;
   /** Can be "TON", "ETH", or "USDT" */
@@ -25,14 +26,16 @@ export interface User {
 }
 
 interface TransactionBase {
-  sender: number | User;
+  _id: string;
+  /** Or "buyer" */
+  sender: bigint | User;
   gift: string | Gift;
   timestamp: Date;
 }
 
 export interface TransferTransaction extends TransactionBase {
   transactionType: "transfer";
-  recipient: number | User;
+  recipient: bigint | User;
 }
 
 export interface BuyTransaction extends TransactionBase {
