@@ -13,19 +13,6 @@ export default defineEventHandler(async (event) => {
   await UserModel.deleteMany();
 
   // Insert sample data
-  const users = await UserModel.insertMany([
-    {
-      _id: 2200482356,
-      name: "Test",
-      profilePicture: "/images/profile.png",
-    },
-    {
-      _id: 2200482357,
-      name: "Test2",
-      profilePicture: "/images/profile.png",
-    },
-  ]);
-
   const gifts = await GiftModel.insertMany([
     {
       name: "Delicious Cake",
@@ -65,21 +52,59 @@ export default defineEventHandler(async (event) => {
     },
   ]);
 
+  const users = await UserModel.insertMany([
+    {
+      _id: 1,
+      name: "Bob",
+      profilePicture:
+        "https://xsgames.co/randomusers/assets/avatars/male/51.jpg",
+      ownedGifts: [gifts[0]._id, gifts[1]._id],
+    },
+    {
+      _id: 2,
+      name: "Alice",
+      profilePicture:
+        "https://xsgames.co/randomusers/assets/avatars/female/39.jpg",
+      ownedGifts: [gifts[2]._id],
+      receivedGifts: [gifts[1]._id],
+    },
+  ]);
+
   await TransactionModel.insertMany([
+    // Bob bought a cake
     {
       sender: users[0]._id,
-      recipient: users[1]._id,
       gift: gifts[0]._id,
-      transactionType: "transfer",
+      transactionType: "buy",
       timestamp: new Date(),
+      price: gifts[0].price,
+      currency: gifts[0].currency,
     },
+    // Bob bought a green star
     {
       sender: users[0]._id,
       gift: gifts[1]._id,
       transactionType: "buy",
       timestamp: new Date(),
-      price: 10,
-      currency: "USDT",
+      price: gifts[1].price,
+      currency: gifts[1].currency,
+    },
+    // Alice bought a blue star
+    {
+      sender: users[1]._id,
+      gift: gifts[2]._id,
+      transactionType: "buy",
+      timestamp: new Date(),
+      price: gifts[2].price,
+      currency: gifts[2].currency,
+    },
+    // Bob transferred a green star to Alice
+    {
+      sender: users[0]._id,
+      recipient: users[1]._id,
+      gift: gifts[1]._id,
+      transactionType: "transfer",
+      timestamp: new Date(),
     },
   ]);
 
