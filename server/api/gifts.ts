@@ -1,5 +1,3 @@
-import { GiftModel } from "~~/server/models/gift";
-
 /**
  * Return a list of all gifts in the DB
  */
