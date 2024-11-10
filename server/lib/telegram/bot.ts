@@ -21,7 +21,8 @@ bot.command("start", async (ctx) => {
     caption: "🎁 Here you can buy and send gifts to your friends.",
     reply_markup: new InlineKeyboard().webApp(
       "Open App",
-      "http://127.0.0.1:3000/" // Bot API doesn't accept "localhost" even in test environment (need to test if 127... works in non-test, but with HTTPS)
+      "https://nationally-expert-grizzly.ngrok-free.app/"
+      // "http://127.0.0.1:3000/" // Bot API doesn't accept "localhost" even in test environment (need to test if 127... works in non-test, but with HTTPS)
     ),
   });
 
