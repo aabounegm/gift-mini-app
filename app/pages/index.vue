@@ -1,20 +1,32 @@
 <script setup lang="ts">
-import {
-  MainButton,
-  useWebApp,
-  useWebAppPopup,
-  useWebAppMainButton,
-} from "vue-tg";
+import giftIcon from "assets/icons/gift.svg";
 
-const { isMainButtonVisible } = useWebAppMainButton();
-const { initDataUnsafe } = useWebApp();
-const { showAlert } = useWebAppPopup();
+const { data: gifts } = useFetch("/api/gifts", {
+  default: () => [],
+});
 </script>
 
 <template>
-  <MainButton text="Test" @click="() => showAlert('Hello!')" />
-  <div>Username: {{ initDataUnsafe.user?.first_name }}</div>
-  <button @click="isMainButtonVisible = !isMainButtonVisible">
-    Toggle main button
-  </button>
+  <header class="text-center px-2 py-6">
+    <div
+      class="gift-icon bg-primary mx-auto"
+      :style="{ maskImage: `url(${giftIcon})` }"
+    />
+    <h1 class="text-2xl font-semibold my-2">Buy and send gifts</h1>
+    <p>Unique gifts for everyone by Crypto Pay.</p>
+  </header>
+  <main class="grid grid-cols-2 gap-4 p-4">
+    <StoreGiftCard v-for="gift in gifts" :gift />
+  </main>
 </template>
+
+<style scoped>
+.gift-icon {
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 44px;
+  height: 48px;
+}
+</style>
