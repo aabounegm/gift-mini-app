@@ -51,7 +51,7 @@ export default defineEventHandler(async (event) => {
       available: 10000,
       image:
         "https://nationally-expert-grizzly.ngrok-free.app/images/red-star.png",
-      color: "#007AFF",
+      color: "#FF4747",
     },
   ]);
 
