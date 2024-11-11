@@ -1,30 +1,36 @@
-import { SchemaTypes } from "mongoose";
+import { SchemaTypes, Schema } from "mongoose";
 import { defineMongooseModel } from "#nuxt/mongoose";
 import { User } from "~~/shared/types";
+
+export const ownedGiftSchema = new Schema({
+  gift: {
+    type: SchemaTypes.ObjectId,
+    ref: "Gift",
+  },
+  purchaseDate: SchemaTypes.Date,
+});
+
+export const receivedGiftModel = new Schema({
+  gift: {
+    type: SchemaTypes.ObjectId,
+    ref: "Gift",
+  },
+  sender: {
+    type: SchemaTypes.BigInt,
+    ref: "User",
+  },
+  receiveDate: SchemaTypes.Date,
+});
 
 export const UserModel = defineMongooseModel<User>({
   name: "User",
   schema: {
-    // @ts-expect-error I don't understand Mongoose typings
-    _id: {
-      type: SchemaTypes.BigInt, // 64-bit integer in Mongo, not JavaScript's arbitrarily large BigInt
-      transform: (v: bigint) => Number(v),
-    },
+    _id: SchemaTypes.BigInt, // 64-bit integer in Mongo, not JavaScript's arbitrarily large BigInt
     name: SchemaTypes.String,
     /** URL */
     profilePicture: SchemaTypes.String,
     /** Gifts I purchased myself */
-    ownedGifts: [
-      {
-        type: SchemaTypes.ObjectId,
-        ref: "Gift",
-      },
-    ],
-    receivedGifts: [
-      {
-        type: SchemaTypes.ObjectId,
-        ref: "Gift",
-      },
-    ],
+    ownedGifts: [ownedGiftSchema],
+    receivedGifts: [receivedGiftModel],
   },
 });

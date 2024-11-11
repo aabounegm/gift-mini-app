@@ -12,13 +12,13 @@ export default defineEventHandler(async (event) => {
 
   if (userId) {
     const user = await UserModel.findById(userId)
-      .populate("ownedGifts")
-      .select("ownedGifts");
+      .select("ownedGifts.gift")
+      .populate("ownedGifts.gift");
     if (!user) {
       setResponseStatus(event, 404);
       return { message: "User not found" };
     }
-    return user.ownedGifts;
+    return user.ownedGifts.map((gift) => gift.gift);
   }
 
   const gifts = await GiftModel.find();

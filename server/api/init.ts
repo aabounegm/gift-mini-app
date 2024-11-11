@@ -61,15 +61,35 @@ export default defineEventHandler(async (event) => {
       name: "Bob",
       profilePicture:
         "https://xsgames.co/randomusers/assets/avatars/male/51.jpg",
-      ownedGifts: [gifts[0]._id, gifts[1]._id],
+      ownedGifts: [
+        {
+          gift: gifts[0]._id,
+          purchaseDate: new Date(),
+        },
+        {
+          gift: gifts[1]._id,
+          purchaseDate: new Date(),
+        },
+      ],
     },
     {
       _id: 2,
       name: "Alice",
       profilePicture:
         "https://xsgames.co/randomusers/assets/avatars/female/39.jpg",
-      ownedGifts: [gifts[2]._id],
-      receivedGifts: [gifts[1]._id],
+      ownedGifts: [
+        {
+          gift: gifts[2]._id,
+          purchaseDate: new Date(),
+        },
+      ],
+      receivedGifts: [
+        {
+          gift: gifts[1]._id,
+          sender: 1, // users[0]._id,
+          receiveDate: new Date(),
+        },
+      ],
     },
   ]);
 

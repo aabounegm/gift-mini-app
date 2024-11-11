@@ -52,7 +52,10 @@ export default defineEventHandler(async (event) => {
     }
 
     // Add the gift to the user's "ownedGifts" array
-    dbUser.ownedGifts.push(gift.id);
+    dbUser.ownedGifts.push({
+      gift: gift.id,
+      purchaseDate: new Date(),
+    });
     dbUser.save();
 
     // decrement the "available" count

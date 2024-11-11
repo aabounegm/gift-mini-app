@@ -33,6 +33,9 @@ export default defineEventHandler(async (event) => {
   return transactions.map((transaction) =>
     transaction.toJSON({
       transform: (doc, ret) => {
+        if (typeof ret._id === "bigint") {
+          ret._id = Number(ret._id);
+        }
         if (typeof ret.sender === "bigint") {
           ret.sender = Number(ret.sender);
         }

@@ -67,12 +67,16 @@ export default defineEventHandler(async (event) => {
     }
 
     // Add the gift to the receiver's "receivedGifts" array
-    receiver.receivedGifts.push(gift.id);
+    receiver.receivedGifts.push({
+      gift: gift.id,
+      sender: sender.id,
+      receiveDate: new Date(),
+    });
     receiver.save();
 
     // Remove the gift from the receiver's "ownedGifts" array
-    sender.ownedGifts = (sender.ownedGifts as string[]).filter(
-      (id) => id !== gift.id
+    sender.ownedGifts = sender.ownedGifts.filter(
+      (ownedGift) => (ownedGift.gift as string) !== gift.id
     );
     sender.save();
 

@@ -14,6 +14,17 @@ export interface Gift {
   color: string;
 }
 
+export interface OwnedGift {
+  gift: Gift | Gift["_id"];
+  purchaseDate: Date;
+}
+
+export interface ReceivedGift {
+  gift: Gift | Gift["_id"];
+  sender: User | User["_id"];
+  receiveDate: Date;
+}
+
 export interface User {
   /** Telegram Chat ID */
   _id: number;
@@ -21,8 +32,9 @@ export interface User {
   /** URL */
   profilePicture: string;
   /** Gifts I purchased myself */
-  ownedGifts: string[] | Gift[];
-  receivedGifts: string[] | Gift[];
+  ownedGifts: OwnedGift[];
+  /** Gifts I received */
+  receivedGifts: ReceivedGift[];
 }
 
 export type LeaderboardUser = Pick<User, "_id" | "name" | "profilePicture"> & {
