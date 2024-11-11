@@ -4,7 +4,7 @@ import { LeaderboardUser } from "~~/shared/types";
  * Return a list of all users in the DB, for the leaderboard
  */
 export default defineEventHandler(async (event) => {
-  let users = await UserModel.aggregate<LeaderboardUser>([
+  const users = await UserModel.aggregate<LeaderboardUser>([
     {
       $project: {
         _id: 1,

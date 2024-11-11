@@ -15,15 +15,27 @@ export interface Gift {
 }
 
 export interface OwnedGift {
+  _id: string;
   gift: Gift | Gift["_id"];
   purchaseDate: Date;
 }
 
 export interface ReceivedGift {
+  _id: string;
   gift: Gift | Gift["_id"];
   sender: User | User["_id"];
   receiveDate: Date;
 }
+
+export type PopulatedReceivedGift = ReceivedGift & {
+  gift: Gift;
+  sender: Pick<User, "name" | "profilePicture" | "_id">;
+};
+
+export type PopulatedUser = User & {
+  receivedGifts: PopulatedReceivedGift[];
+  ownedGifts: never;
+};
 
 export interface User {
   /** Telegram Chat ID */
