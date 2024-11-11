@@ -31,6 +31,13 @@ bot.command("start", async (ctx) => {
   }
 });
 
+bot.command("dev", async (ctx) => {
+  const url = ctx.match || "http://127.0.0.1:3000/";
+  await ctx.reply(`Dev mode web app: ${url}`, {
+    reply_markup: new InlineKeyboard().webApp("Open App", url),
+  });
+});
+
 bot.on("message", (ctx) =>
   ctx.reply("Sorry, I cannot handle plain text messages")
 );
