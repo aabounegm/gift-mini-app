@@ -1,9 +1,34 @@
 <script setup lang="ts">
-import { MainButton } from "vue-tg";
+import { MainButton, useWebApp, useWebAppPopup } from "vue-tg";
 import type { Gift } from "~~/shared/types";
 
-const { params } = useRoute();
+const { initData } = useWebApp();
+const { showAlert } = useWebAppPopup();
+
+const router = useRouter();
+const { params, query } = useRoute();
+
 const { data: gift } = useFetch<Gift>(`/api/gift/${params.id}`);
+
+onMounted(async () => {
+  if (!query.from) {
+    // TODO: show an error message
+    return;
+  }
+
+  try {
+    await $fetch(`/api/gift/${params.id}/transfer`, {
+      query: {
+        from: query.from,
+        initData,
+      },
+    });
+  } catch (error) {
+    showAlert(`Failed to accept the gift: ${(error as Error).message}`, () => {
+      router.replace("/profile");
+    });
+  }
+});
 </script>
 
 <template>

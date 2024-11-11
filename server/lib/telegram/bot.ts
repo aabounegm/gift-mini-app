@@ -46,12 +46,15 @@ bot.on("inline_query", async (ctx) => {
     return ctx.answerInlineQuery([]);
   }
 
+  const args = encodeURIComponent(
+    `gift=${gift.id}&from=${ctx.inlineQuery.from.id}`
+  );
   const result = InlineQueryResultBuilder.article(gift.id, "Send gift", {
     thumbnail_url: gift.image,
     description: `Send a gift of ${gift.name}`,
     reply_markup: new InlineKeyboard().url(
       "Receive gift",
-      `https://t.me/aa_gift_bot/gift_app?startapp=${gift.id}`
+      `https://t.me/aa_gift_bot/gift_app?startapp=${args}`
     ),
   }).text(`🎁 I have a gift for you! Tap the button below to open it.`);
 

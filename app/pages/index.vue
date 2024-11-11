@@ -2,12 +2,17 @@
 import { useWebApp } from "vue-tg";
 
 definePageMeta({
-  middleware(from, to, next) {
+  middleware(from) {
     const { initDataUnsafe } = useWebApp();
-    const giftId = initDataUnsafe.start_param;
 
-    if (from.path === "/" && giftId) {
-      return navigateTo(`/gifts/${giftId}/received`);
+    if (from.path === "/" && initDataUnsafe.start_param) {
+      const params = new URLSearchParams(
+        decodeURIComponent(initDataUnsafe.start_param)
+      );
+      const giftId = params.get("gift");
+      const fromUserId = params.get("from");
+
+      return navigateTo(`/gifts/${giftId}/received?from=${fromUserId}`);
     }
 
     return navigateTo("/store");
