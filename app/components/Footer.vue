@@ -33,7 +33,10 @@ const links = [
     <NuxtLink
       v-for="{ iconSrc, text, to } in links"
       :to="to"
-      class="footer-link"
+      :class="{
+        'footer-link': true,
+        'router-link-active': $route.path.startsWith(to),
+      }"
     >
       <div class="mx-auto icon" :style="{ maskImage: `url(${iconSrc})` }" />
       <span class="inline-block text-xs my-1">
