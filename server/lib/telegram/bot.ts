@@ -1,4 +1,4 @@
-import { Bot, InlineKeyboard } from "grammy";
+import { Bot, InlineKeyboard, InlineQueryResultBuilder } from "grammy";
 
 const { telegram } = useRuntimeConfig();
 
@@ -35,6 +35,28 @@ bot.command("dev", async (ctx) => {
   const url = ctx.match || "http://127.0.0.1:3000/";
   await ctx.reply(`Dev mode web app: ${url}`, {
     reply_markup: new InlineKeyboard().webApp("Open App", url),
+  });
+});
+
+bot.on("inline_query", async (ctx) => {
+  const giftId = ctx.inlineQuery.query;
+
+  const gift = await GiftModel.findById(giftId).catch(() => null);
+  if (gift == null) {
+    return ctx.answerInlineQuery([]);
+  }
+
+  const result = InlineQueryResultBuilder.article(gift.id, "Send gift", {
+    thumbnail_url: gift.image,
+    description: `Send a gift of ${gift.name}`,
+    reply_markup: new InlineKeyboard().url(
+      "Receive gift",
+      `https://t.me/aa_gift_bot/gift_app?startapp=${gift.id}`
+    ),
+  }).text(`🎁 I have a gift for you! Tap the button below to open it.`);
+
+  await ctx.answerInlineQuery([result], {
+    cache_time: import.meta.dev ? 0 : 300,
   });
 });
 
