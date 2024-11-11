@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     telegram: {
       botToken: "",
       apiSecret: "",
+      useTestServer: false,
     },
   },
 });

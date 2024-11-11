@@ -6,7 +6,7 @@ export const bot = new Bot(telegram.botToken, {
   client: {
     environment: import.meta.dev ? "test" : "prod",
     buildUrl(root, token, method, env) {
-      const maybeTest = env === "test" ? "test/" : "";
+      const maybeTest = env === "test" && telegram.useTestServer ? "test/" : "";
       return `${root}/bot${token}/${maybeTest}${method}`;
     },
   },
