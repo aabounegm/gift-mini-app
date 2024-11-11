@@ -23,7 +23,10 @@ export const TransactionModel = defineMongooseModel<Transaction>({
       required: true,
     },
     // quantity: SchemaTypes.Number, // Hard-coded as 1 for simplicity
-    transactionType: SchemaTypes.String,
+    transactionType: {
+      type: SchemaTypes.String,
+      enum: ["buy", "transfer"],
+    },
     timestamp: SchemaTypes.Date,
     price: {
       type: SchemaTypes.Number,

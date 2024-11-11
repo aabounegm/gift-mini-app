@@ -14,9 +14,9 @@ export const GiftModel = defineMongooseModel<Gift>({
       type: SchemaTypes.Number,
       required: true,
     },
-    /** Can be "TON", "ETH", or "USDT" */
     currency: {
       type: SchemaTypes.String,
+      enum: ["TON", "ETH", "USDT"],
       required: true,
     },
     /** How much of this gift is in circulation */
