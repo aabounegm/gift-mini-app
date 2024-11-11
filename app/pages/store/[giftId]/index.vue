@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MainButton, BackButton } from "vue-tg";
+import { MainButton, BackButton, useWebApp } from "vue-tg";
 import type { Gift } from "~~/shared/types";
 import { compactNumber } from "~~/shared/utils";
 import usdtFilled from "~/assets/currencies/usdt-filled.svg";
@@ -8,6 +8,8 @@ import ethFilled from "~/assets/currencies/eth-filled.svg";
 import tgPattern from "~/assets/background/telegram-pattern.svg";
 import type { RecentTransaction } from "~/components/store/TransactionItem.vue";
 
+const { initData } = useWebApp();
+const router = useRouter();
 const { params } = useRoute();
 const { data: gift } = useFetch<Gift>(`/api/gift/${params.giftId}`);
 const { data: recentActions } = useFetch<RecentTransaction[]>(
@@ -27,6 +29,24 @@ const iconMap = {
 };
 
 const buyingConfirm = ref(false);
+const loading = ref(false);
+
+async function buyGift() {
+  loading.value = true;
+  try {
+    await $fetch(`/api/gift/${gift.value?._id}/buy`, {
+      params: {
+        initData,
+      },
+    });
+  } catch (error) {
+    alert("An error occurred: " + error);
+    return;
+  } finally {
+    loading.value = false;
+  }
+  router.push(`/store/${gift.value?._id}/purchased`);
+}
 </script>
 
 <template>
@@ -35,7 +55,9 @@ const buyingConfirm = ref(false);
     <MainButton
       v-if="buyingConfirm"
       :text="`Pay ${gift?.price} ${gift?.currency}`"
-      @click="$router.push(`/store/${gift?._id}/purchased`)"
+      :progress="loading"
+      :disabled="loading"
+      @click="buyGift"
     />
     <MainButton v-else text="Buy gift" @click="buyingConfirm = true" />
 
