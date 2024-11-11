@@ -25,6 +25,10 @@ export interface User {
   receivedGifts: string[] | Gift[];
 }
 
+export type LeaderboardUser = Pick<User, "_id" | "name" | "profilePicture"> & {
+  receivedGiftsCount: number;
+};
+
 interface TransactionBase {
   _id: string;
   /** Or "buyer" */
