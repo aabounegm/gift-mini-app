@@ -10,11 +10,6 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-  routeRules: {
-    "/": {
-      redirect: "/store",
-    },
-  },
   modules: ["@nuxtjs/tailwindcss", "nuxt-mongoose"],
   future: {
     compatibilityVersion: 4,
