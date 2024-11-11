@@ -30,8 +30,8 @@ export default defineEventHandler(async (event) => {
 
   const transactions = await query;
 
-  return transactions.map((gift) =>
-    gift.toJSON({
+  return transactions.map((transaction) =>
+    transaction.toJSON({
       transform: (doc, ret) => {
         if (typeof ret.sender === "bigint") {
           ret.sender = Number(ret.sender);
