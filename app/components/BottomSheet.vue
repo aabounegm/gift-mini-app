@@ -3,6 +3,10 @@ const open = defineModel({
   default: false,
 });
 
+const emit = defineEmits<{
+  close: [];
+}>();
+
 const dialog = ref<HTMLDialogElement>();
 
 watchEffect(() => {
@@ -15,8 +19,13 @@ watchEffect(() => {
 
 function handleClickOutside(e: MouseEvent) {
   if (e.target === dialog.value) {
-    open.value = false;
+    close();
   }
+}
+
+function close() {
+  open.value = false;
+  emit("close");
 }
 </script>
 
@@ -31,7 +40,7 @@ function handleClickOutside(e: MouseEvent) {
     <div class="w-full h-full">
       <button
         autofocus
-        @click="open = false"
+        @click="close"
         class="bg-gray-300 text-gray-600 rounded-full size-6 absolute right-4"
       >
         &times;

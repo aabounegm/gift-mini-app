@@ -9,9 +9,7 @@ const { data: gifts } = useFetch<Gift[]>(`/api/gifts`, {
   default: () => [],
 });
 
-function startSend(gift: Gift) {
-  console.log("Sending gift", gift);
-}
+const giftToSend = ref<Gift>();
 </script>
 
 <template>
@@ -29,8 +27,15 @@ function startSend(gift: Gift) {
         v-for="gift in gifts"
         :key="gift._id"
         :gift="gift"
-        @sendClick="startSend(gift)"
+        @sendClick="giftToSend = gift"
       />
     </main>
+
+    <BottomSheet
+      @close="giftToSend = undefined"
+      :modelValue="giftToSend != undefined"
+    >
+      <GiftsSendGift v-if="giftToSend" :gift="giftToSend" />
+    </BottomSheet>
   </div>
 </template>
