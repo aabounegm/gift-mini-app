@@ -19,7 +19,7 @@ const {
   onSecondaryButtonClicked,
 } = useWebAppSecondaryButton();
 
-onMainButtonClicked(() => router.push("/gifts")); // TODO: go to the specific gift
+onMainButtonClicked(() => router.push(`/gifts?gift=${gift.value?._id}`));
 onSecondaryButtonClicked(() => router.push("/store"));
 onBackButtonClicked(() => router.back());
 

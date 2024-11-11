@@ -10,6 +10,27 @@ const { data: gifts } = useFetch<Gift[]>(`/api/gifts`, {
 });
 
 const giftToSend = ref<Gift>();
+
+// This is not working for some reason
+
+// const { query } = useRoute();
+// const unwatch = watch(gifts, (gifts) => {
+//   if (gifts.length === 0) {
+//     return;
+//   }
+
+//   console.log("gifts", gifts.length);
+//   console.log("query", query.gift);
+//   if (query.gift) {
+//     console.log(
+//       "setting giftToSend to",
+//       gifts.find((gift) => gift._id === query.gift)
+//     );
+//     giftToSend.value = gifts.find((gift) => gift._id === query.gift);
+//   }
+//   console.log("unwatchher", unwatch);
+//   // unwatch();
+// });
 </script>
 
 <template>
