@@ -37,7 +37,7 @@ const giftToSend = ref<Gift>();
   <div class="p-4 text-center">
     <header class="my-4 px-4">
       <h1 class="text-2xl font-semibold mb-2">Send Gifts in Telegram</h1>
-      <p class="text-lg text-label-secondary font-light">
+      <p class="text-lg text-subtitle_text_color font-light">
         Send gifts to users that can be stored in their app profile.
       </p>
     </header>

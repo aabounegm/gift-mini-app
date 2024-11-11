@@ -14,10 +14,10 @@ defineProps<{
       <img :src="user.profilePicture" class="size-10 rounded-full" />
       <div class="flex-grow">
         <p class="text-lg">{{ user.name }}</p>
-        <p class="text-primary text-sm">
+        <p class="text-button_color text-sm">
           <span
             :style="{ maskImage: `url(${giftIcon})`, maskSize: '100%' }"
-            class="inline-block bg-primary size-3 mr-1"
+            class="inline-block bg-button_color size-3 mr-1"
           />
           {{ user.receivedGiftsCount }} gifts
         </p>
@@ -25,7 +25,9 @@ defineProps<{
       <span class="text-xl" v-if="position === 1">🥇</span>
       <span class="text-xl" v-else-if="position === 2">🥈</span>
       <span class="text-xl" v-else-if="position === 3">🥉</span>
-      <span class="text-md text-label-secondary" v-else>#{{ position }}</span>
+      <span class="text-md text-subtitle_text_color" v-else>
+        #{{ position }}
+      </span>
     </NuxtLink>
   </li>
 </template>

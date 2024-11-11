@@ -28,16 +28,16 @@ const isTransfer = computed(() => transaction.transactionType === "transfer");
       />
     </div>
     <div class="flex flex-col">
-      <span class="text-sm text-label-secondary font-light">
+      <span class="text-sm text-subtitle_text_color font-light">
         {{ isTransfer ? "Send gift" : "Buy gift" }}
       </span>
       <span>
-        <span class="text-primary">
+        <span class="text-link_color">
           {{ transaction.sender.name }}
         </span>
         <span v-if="isTransfer">
           sent gift to
-          <span class="text-primary">{{ transaction.recipient.name }}</span>
+          <span class="text-link_color">{{ transaction.recipient.name }}</span>
         </span>
         <span v-else> bought gift</span>
       </span>

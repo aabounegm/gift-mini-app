@@ -5,6 +5,8 @@
 </template>
 
 <style>
+@import url("~/assets/css/main.css");
+
 .page-enter-active,
 .page-leave-active {
   transition: transform 0.3s ease;

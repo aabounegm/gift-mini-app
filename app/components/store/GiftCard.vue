@@ -30,10 +30,10 @@ const iconMap = {
     <img class="size-28 mx-auto" :src="gift.image" />
     <p class="text-lg font-semibold text-center">{{ gift.name }}</p>
     <button
-      class="bg-primary py-2 px-4 rounded-full text-white mx-auto flex gap-1 justify-center items-center"
+      class="py-2 px-4 rounded-full mx-auto flex gap-1 justify-center items-center"
     >
       <span
-        class="currency-icon bg-white size-6"
+        class="currency-icon bg-button_text_color size-6"
         :style="{ maskImage: `url(${iconMap[gift.currency]})` }"
       />
       <span>{{ gift.price }} {{ gift.currency }}</span>

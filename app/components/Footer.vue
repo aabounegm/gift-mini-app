@@ -45,24 +45,24 @@ const links = [
 
 <style lang="css" scoped>
 footer {
-  background-color: #f1f1f2bf;
+  @apply bg-secondary_bg_color;
 }
 .footer-link {
-  color: theme("colors.icons");
+  @apply text-subtitle_text_color;
 }
 .footer-link .icon {
+  @apply bg-subtitle_text_color;
   mask-size: 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-position: center;
   width: 24px;
   height: 24px;
-  background-color: theme("colors.icons");
 }
-.footer-link.router-link-active {
-  color: theme("colors.primary");
+.footer-link.router-link-active span {
+  @apply text-link_color;
 }
 .footer-link.router-link-active .icon {
-  background-color: theme("colors.primary");
+  @apply bg-link_color;
 }
 </style>

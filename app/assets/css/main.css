@@ -1,0 +1,22 @@
+body {
+  @apply bg-secondary_bg_color text-text_color;
+}
+
+a {
+  @apply text-link_color;
+}
+
+p,
+span,
+h1,
+h2,
+td {
+  @apply text-text_color;
+}
+
+button {
+  @apply bg-button_color text-button_text_color;
+}
+button span {
+  @apply bg-button_color text-button_text_color;
+}

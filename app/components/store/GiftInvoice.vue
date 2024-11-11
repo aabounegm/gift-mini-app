@@ -10,7 +10,7 @@ defineProps<{ gift: Gift }>();
     <img :src="balloonsImg" class="balloon size-32 p-4 mx-auto rounded-full" />
     <h1 class="text-lg">Invoice from Gift App</h1>
     <p class="font-bold text-3xl">{{ gift.price }} {{ gift.currency }}</p>
-    <p class="text-label-secondary">${{ gift.price }}</p>
+    <p class="text-hint_color">${{ gift.price }}</p>
     <p>Purchasing a {{ gift.name }} gift</p>
   </div>
 </template>

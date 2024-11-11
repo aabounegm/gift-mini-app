@@ -4,10 +4,10 @@ import balloonsImg from "~/assets/images/ballons.png";
 
 <template>
   <div
-    class="bg-bg-secondary rounded-xl h-60 flex flex-col justify-evenly items-center"
+    class="bg-bg_color rounded-xl h-60 flex flex-col justify-evenly items-center"
   >
     <img :src="balloonsImg" class="size-24" />
     <p>You don't have any gifts yet.</p>
-    <NuxtLink to="/store" class="text-primary">Open store</NuxtLink>
+    <NuxtLink to="/store">Open store</NuxtLink>
   </div>
 </template>

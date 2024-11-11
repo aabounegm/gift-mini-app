@@ -10,7 +10,7 @@ const { data: gifts } = useFetch("/api/gifts", {
   <div>
     <header class="text-center px-2 py-6">
       <div
-        class="gift-icon bg-primary mx-auto"
+        class="gift-icon bg-button_color mx-auto"
         :style="{ maskImage: `url(${giftIcon})` }"
       />
       <h1 class="text-2xl font-semibold my-2">Buy and send gifts</h1>

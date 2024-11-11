@@ -79,13 +79,13 @@ async function buyGift() {
       <h1 class="text-2xl font-semibold">
         <span>{{ gift.name }}</span>
         <span
-          class="text-primary text-sm align-middle ml-3 bg-primary bg-opacity-15 py-1 px-2 rounded-full"
+          class="supply-chip relative text-button_color text-sm align-middle ml-3 py-1 px-2 rounded-full"
         >
           {{ compactNumber(gift.available) }} of
           {{ compactNumber(gift.totalSupply) }}
         </span>
       </h1>
-      <p class="text-label-secondary my-2">
+      <p class="text-subtitle_text_color my-2">
         Purchase this gift for the opportunity to give it to another user.
       </p>
       <span>
@@ -94,10 +94,10 @@ async function buyGift() {
       </span>
     </main>
 
-    <hr class="h-3 bg-bg-secondary" />
+    <hr class="h-3 bg-bg_color border-bg_color" />
 
     <footer class="m-4" v-if="recentActions.length > 0">
-      <h1 class="text-label-date mb-2">Recent actions</h1>
+      <h1 class="text-section_header_text_color mb-2">Recent actions</h1>
       <ul>
         <StoreTransactionItem
           v-for="transaction in recentActions"
@@ -108,3 +108,15 @@ async function buyGift() {
     </footer>
   </div>
 </template>
+
+<style scoped>
+.supply-chip::before {
+  @apply bg-button_color;
+  @apply top-0 left-0 bottom-0 right-0;
+  @apply absolute;
+  @apply rounded-full;
+
+  content: "";
+  opacity: 0.15;
+}
+</style>
