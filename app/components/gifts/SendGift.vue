@@ -27,7 +27,7 @@ const { switchInlineQuery } = useWebAppNavigation();
   <div class="flex flex-col justify-center items-center gap-6">
     <img :src="gift.image" class="size-40" />
     <h2 class="text-2xl font-semibold">Send gift</h2>
-    <table class="bg-bg_color rounded-xl w-full text-start">
+    <table class="bg-secondary_bg_color rounded-xl w-full text-start">
       <tbody>
         <tr>
           <td>Gift</td>
@@ -61,9 +61,9 @@ td:first-child {
   @apply font-light text-subtitle_text_color;
 }
 tr:not(:last-child) {
-  border-bottom: 0.33px solid theme("colors.section_separator_color");
+  border-bottom: 1px solid theme("colors.section_separator_color");
 }
 td:not(:last-child) {
-  border-right: 0.33px solid theme("colors.section_separator_color");
+  border-right: 1px solid theme("colors.section_separator_color");
 }
 </style>

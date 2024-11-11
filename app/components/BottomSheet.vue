@@ -32,7 +32,7 @@ function close() {
 <template>
   <dialog
     ref="dialog"
-    class="m-0 bottom-0 max-w-full w-full h-3/4 rounded-t-xl bg-secondary_bg_color p-4"
+    class="m-0 bottom-0 max-w-full w-full h-3/4 rounded-t-xl bg-bg_color p-4"
     style="inset-block-start: auto"
     @click="handleClickOutside"
   >
@@ -41,7 +41,7 @@ function close() {
       <button
         autofocus
         @click="close"
-        class="bg-bg_color text-subtitle_text_color rounded-full size-6 absolute right-4"
+        class="bg-secondary_bg_color text-subtitle_text_color rounded-full size-6 absolute right-4"
       >
         &times;
       </button>

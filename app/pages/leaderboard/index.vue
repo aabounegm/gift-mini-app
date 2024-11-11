@@ -21,7 +21,7 @@ const filteredUsers = computed(() =>
     <input
       v-model="search"
       placeholder="🔍 Search"
-      class="text-center w-full bg-bg_color rounded-xl p-2"
+      class="text-center w-full bg-secondary_bg_color rounded-xl p-2"
     />
     <hr class="my-2" />
     <ul>

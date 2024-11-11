@@ -4,7 +4,7 @@ import balloonsImg from "~/assets/images/ballons.png";
 
 <template>
   <div
-    class="bg-bg_color rounded-xl h-60 flex flex-col justify-evenly items-center"
+    class="bg-secondary_bg_color rounded-xl h-60 flex flex-col justify-evenly items-center"
   >
     <img :src="balloonsImg" class="size-24" />
     <p>You don't have any gifts yet.</p>

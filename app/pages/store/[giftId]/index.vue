@@ -94,7 +94,7 @@ async function buyGift() {
       </span>
     </main>
 
-    <hr class="h-3 bg-bg_color border-bg_color" />
+    <hr class="h-3 bg-secondary_bg_color border-bg_color" />
 
     <footer class="m-4" v-if="recentActions.length > 0">
       <h1 class="text-section_header_text_color mb-2">Recent actions</h1>

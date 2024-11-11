@@ -45,7 +45,7 @@ const links = [
 
 <style lang="css" scoped>
 footer {
-  @apply bg-secondary_bg_color;
+  @apply bg-bottom_bar_bg_color;
 }
 .footer-link {
   @apply text-subtitle_text_color;
