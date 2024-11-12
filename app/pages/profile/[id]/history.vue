@@ -30,8 +30,8 @@ const dailyHistory = computed(() =>
     <ProfileHistoryEmptyState v-if="history.length === 0" />
     <div class="p-4" v-else>
       <header class="text-center my-4">
-        <h1 class="text-2xl font-semibold mb-2">Recent Actions</h1>
-        <p class="text-subtitle_text_color">Here is your action history.</p>
+        <h1 class="text-2xl font-semibold mb-2">{{ $t("history.title") }}</h1>
+        <p class="text-subtitle_text_color">{{ $t("history.subtitle") }}</p>
       </header>
 
       <main>

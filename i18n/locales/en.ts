@@ -76,4 +76,20 @@ export default {
       amount: "{available} of {total}",
     },
   },
+  history: {
+    title: "Recent Actions",
+    subtitle: "Here is your action history.",
+    empty: {
+      title: "History is empty",
+      subtitle: "Give and receive gifts so there's something here.",
+      action: "Open store",
+    },
+    item: {
+      bought: "Bought",
+      sent: "Sent",
+      received: "Received",
+      to: "to",
+      from: "from",
+    },
+  },
 };

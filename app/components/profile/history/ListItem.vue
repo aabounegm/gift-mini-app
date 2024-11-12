@@ -42,7 +42,9 @@ const iconMap = {
       />
     </div>
     <div class="grow">
-      <p class="capitalize text-sm text-hint_color">{{ operationType }}</p>
+      <p class="text-sm text-hint_color">
+        {{ $t(`history.item.${operationType}`) }}
+      </p>
       <p class="text-lg">{{ item.gift.name }}</p>
     </div>
     <div>
@@ -50,13 +52,13 @@ const iconMap = {
         -{{ item.gift.price }} {{ item.gift.currency }}
       </p>
       <p v-else-if="operationType === 'sent'">
-        to
+        {{ $t("history.item.to") }}
         <span class="text-link_color">
           {{ (item as HistoryItemTransfer).recipient.name }}
         </span>
       </p>
       <p v-else>
-        from
+        {{ $t("history.item.from") }}
         <span class="text-link_color">
           {{ item.sender.name }}
         </span>
