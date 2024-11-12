@@ -48,6 +48,11 @@ export default {
       title: "You don't have any gifts yet.",
       action: "Open store",
     },
+    received: {
+      title: "Gift received",
+      subtitle: "You have received the gift {name}.",
+      action: "Open profile",
+    },
   },
   leaderboard: {
     search: "🔍 Search",
