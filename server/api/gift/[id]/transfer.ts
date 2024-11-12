@@ -81,9 +81,10 @@ export default defineEventHandler(async (event) => {
     receiver.save();
 
     // Remove the gift from the receiver's "ownedGifts" array
-    sender.ownedGifts = sender.ownedGifts.filter(
-      (ownedGift) => (ownedGift.gift as string) !== gift.id
+    const giftIdx = sender.ownedGifts.findIndex(
+      (ownedGift) => ownedGift.gift === gift.id
     );
+    sender.ownedGifts.splice(giftIdx, 1);
     sender.save();
 
     // Store a transaction
