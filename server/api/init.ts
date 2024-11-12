@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
       currency: "USDT",
       price: 10,
       totalSupply: 500,
-      available: 3,
+      available: 60,
       image: "https://gift-mini-app.abounegm.com/images/cake.png",
       color: "#FE9F41",
     },
