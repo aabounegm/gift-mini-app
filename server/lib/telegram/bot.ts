@@ -46,33 +46,20 @@ bot.on("inline_query", async (ctx) => {
     return ctx.answerInlineQuery([]);
   }
 
-  const args = `${gift.id}_${ctx.inlineQuery.from.id}`;
+  // Max. 64 characters, only A-Z, a-z, 0-9, _ and - are allowed.
+  const start_param = `${gift.id}_${ctx.inlineQuery.from.id}`;
   const result = InlineQueryResultBuilder.article(gift.id, "Send gift", {
     thumbnail_url: gift.image,
     description: `Send a gift of ${gift.name}`,
-    reply_markup: new InlineKeyboard()
-      .url("Receive gift", `https://t.me/aa_gift_bot/gift_app?startapp=${args}`)
-      .append(
-        new InlineKeyboard().url(
-          "Reolve main",
-          `tg://resolve?domain=aa_gift_bot&startapp=${args}`
-        ),
-        new InlineKeyboard().url(
-          "resolve named",
-          `tg://resolve?domain=aa_gift_bot&appname=gift_app&startapp=${args}`
-        ),
-        new InlineKeyboard().url(
-          "web",
-          `https://gift-mini-app.abounegm.com/?start_param=${args}`
-        )
-      ),
+    reply_markup: new InlineKeyboard().url(
+      "Receive gift",
+      `https://t.me/aa_gift_bot/gift_app?startapp=${start_param}`
+    ),
   }).text(`🎁 I have a gift for you! Tap the button below to open it.`);
 
-  console.log("answering inline query:", result);
-
   await ctx.answerInlineQuery([result], {
-    // cache_time: import.meta.dev ? 0 : 300,
-    cache_time: 0,
+    cache_time: import.meta.dev ? 0 : 300,
+    is_personal: true,
   });
 });
 
