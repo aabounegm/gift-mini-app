@@ -30,4 +30,23 @@ export default {
       },
     },
   },
+  gifts: {
+    title: "Send Gifts in Telegram",
+    subtitle: "Send gifts to users that can be stored in their app profile.",
+    card: {
+      send: "Send",
+    },
+    sendConfirmation: {
+      title: "Send Gift",
+      gift: "Gift",
+      date: "Date",
+      price: "Price",
+      availability: "Availability",
+      action: "Send gift to contact",
+    },
+    empty: {
+      title: "You don't have any gifts yet.",
+      action: "Open store",
+    },
+  },
 };

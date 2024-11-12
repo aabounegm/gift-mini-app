@@ -36,9 +36,9 @@ const giftToSend = ref<Gift>();
 <template>
   <div class="p-4 text-center">
     <header class="my-4 px-4">
-      <h1 class="text-2xl font-semibold mb-2">Send Gifts in Telegram</h1>
+      <h1 class="text-2xl font-semibold mb-2">{{ $t("gifts.title") }}</h1>
       <p class="text-lg text-subtitle_text_color font-light">
-        Send gifts to users that can be stored in their app profile.
+        {{ $t("gifts.subtitle") }}
       </p>
     </header>
 

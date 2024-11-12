@@ -17,7 +17,7 @@ defineEmits<{
     <p class="text-subtitle_text_color font-light text-sm">{{ gift.name }}</p>
     <img :src="gift.image" class="size-20" />
     <button class="rounded-2xl w-10/12 py-1" @click="$emit('sendClick')">
-      Send
+      {{ $t("gifts.card.send") }}
     </button>
   </div>
 </template>
