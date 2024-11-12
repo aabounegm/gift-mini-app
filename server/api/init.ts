@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
       price: 10,
       totalSupply: 500,
       available: 3,
-      image: "https://nationally-expert-grizzly.ngrok-free.app/images/cake.png",
+      image: "https://gift-mini-app.abounegm.com/images/cake.png",
       color: "#FE9F41",
     },
     {
@@ -29,8 +29,7 @@ export default defineEventHandler(async (event) => {
       price: 5,
       totalSupply: 3000,
       available: 802,
-      image:
-        "https://nationally-expert-grizzly.ngrok-free.app/images/green-star.png",
+      image: "https://gift-mini-app.abounegm.com/images/green-star.png",
       color: "#46D100",
     },
     {
@@ -39,8 +38,7 @@ export default defineEventHandler(async (event) => {
       price: 0.01,
       totalSupply: 5000,
       available: 458,
-      image:
-        "https://nationally-expert-grizzly.ngrok-free.app/images/blue-star.png",
+      image: "https://gift-mini-app.abounegm.com/images/blue-star.png",
       color: "#007AFF",
     },
     {
@@ -49,8 +47,7 @@ export default defineEventHandler(async (event) => {
       price: 1,
       totalSupply: 10000,
       available: 10000,
-      image:
-        "https://nationally-expert-grizzly.ngrok-free.app/images/red-star.png",
+      image: "https://gift-mini-app.abounegm.com/images/red-star.png",
       color: "#FF4747",
     },
   ]);
