@@ -52,10 +52,22 @@ bot.on("inline_query", async (ctx) => {
   const result = InlineQueryResultBuilder.article(gift.id, "Send gift", {
     thumbnail_url: gift.image,
     description: `Send a gift of ${gift.name}`,
-    reply_markup: new InlineKeyboard().url(
-      "Receive gift",
-      `https://t.me/aa_gift_bot/gift_app?startapp=${args}`
-    ),
+    reply_markup: new InlineKeyboard()
+      .url("Receive gift", `https://t.me/aa_gift_bot/gift_app?startapp=${args}`)
+      .append(
+        new InlineKeyboard().url(
+          "Reolve main",
+          `tg://resolve?domain=aa_gift_bot&startapp=${args}`
+        ),
+        new InlineKeyboard().url(
+          "resolve named",
+          `tg://resolve?domain=aa_gift_bot&appname=gift_app&startapp=${args}`
+        ),
+        new InlineKeyboard().url(
+          "web",
+          `https://gift-mini-app.abounegm.com/?start_param=${args}`
+        )
+      ),
   }).text(`🎁 I have a gift for you! Tap the button below to open it.`);
 
   console.log("answering inline query:", result);
