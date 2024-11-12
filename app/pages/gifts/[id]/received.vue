@@ -35,19 +35,21 @@ onMounted(async () => {
 </script>
 
 <template>
-  <MainButton
-    :text="$t('gifts.received.action')"
-    @click="$router.push('/profile')"
-  />
-  <main class="flex justify-center items-center h-[90vh]">
-    <div class="p-8">
-      <img :src="gift?.image" class="mx-auto size-40" />
-      <h1 class="text-2xl my-2 font-semibold text-center">
-        {{ $t("gifts.received.title") }}
-      </h1>
-      <p class="text-center">
-        {{ $t("gifts.received.subtitle", { name: gift?.name }) }}
-      </p>
-    </div>
-  </main>
+  <div>
+    <MainButton
+      :text="$t('gifts.received.action')"
+      @click="$router.push('/profile')"
+    />
+    <main class="flex justify-center items-center h-[90vh]">
+      <div class="p-8">
+        <img :src="gift?.image" class="mx-auto size-40" />
+        <h1 class="text-2xl my-2 font-semibold text-center">
+          {{ $t("gifts.received.title") }}
+        </h1>
+        <p class="text-center">
+          {{ $t("gifts.received.subtitle", { name: gift?.name }) }}
+        </p>
+      </div>
+    </main>
+  </div>
 </template>
