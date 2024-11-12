@@ -56,11 +56,11 @@ export default defineEventHandler(async (event) => {
       gift: gift.id,
       purchaseDate: new Date(),
     });
-    dbUser.save();
+    await dbUser.save();
 
     // decrement the "available" count
     gift.available -= 1;
-    gift.save();
+    await gift.save();
 
     // add a transaction
     const transaction = await TransactionModel.create({
