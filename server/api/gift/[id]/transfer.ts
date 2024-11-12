@@ -1,6 +1,8 @@
 import { validate, parse } from "@telegram-apps/init-data-node";
 import mongoose from "mongoose";
 import { z } from "zod";
+import { InlineKeyboard } from "grammy";
+import { bot } from "~~/server/lib/telegram/bot";
 
 const querySchema = z.object({
   initData: z.string(),
@@ -89,6 +91,17 @@ export default defineEventHandler(async (event) => {
       timestamp: new Date(),
     });
   });
+
+  await bot.api.sendMessage(
+    sender._id,
+    `👌 ${user.firstName} received your gift of ${gift.name}`,
+    {
+      reply_markup: new InlineKeyboard().webApp(
+        "Open App",
+        "https://gift-mini-app.abounegm.com/"
+      ),
+    }
+  );
 
   return { message: "Gift transferred successfully" };
 });
