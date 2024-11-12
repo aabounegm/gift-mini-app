@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
 
   if (
     !sender.ownedGifts.some(
-      (ownedGift) => (ownedGift.gift as string) === gift.id
+      (ownedGift) => ownedGift.gift.toString() === gift.id
     )
   ) {
     setResponseStatus(event, 400);
