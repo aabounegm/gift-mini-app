@@ -10,7 +10,17 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-mongoose", "nuxt-svgo"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "nuxt-mongoose",
+    "nuxt-svgo",
+    "@nuxtjs/i18n",
+  ],
+  i18n: {
+    strategy: "no_prefix",
+    locales: ["en", "ru"],
+    defaultLocale: "en",
+  },
   future: {
     compatibilityVersion: 4,
   },

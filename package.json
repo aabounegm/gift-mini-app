@@ -11,6 +11,7 @@
     "format": "prettier . --write"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "9.0.0-rc.2",
     "@telegram-apps/init-data-node": "^1.1.1",
     "grammy": "^1.31.0",
     "nuxt": "^3.14.159",
