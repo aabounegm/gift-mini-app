@@ -12,16 +12,16 @@ defineEmits<{
 </script>
 
 <template>
-  <MainButton text="Close" @click="$emit('close')" />
+  <MainButton :text="$t('profile.details.close')" @click="$emit('close')" />
 
   <div class="flex flex-col justify-center items-center gap-6">
     <img :src="item.gift.image" class="size-40" />
-    <h2 class="text-2xl font-semibold">Send gift</h2>
+    <h2 class="text-2xl font-semibold">{{ $t("profile.details.title") }}</h2>
     <!-- TODO: fix code duplication -->
     <table class="bg-secondary_bg_color rounded-xl w-full text-start">
       <tbody>
         <tr>
-          <td>From</td>
+          <td>{{ $t("profile.details.from") }}</td>
           <td class="flex items-center gap-2">
             <img
               :src="item.sender.profilePicture"
@@ -31,19 +31,26 @@ defineEmits<{
           </td>
         </tr>
         <tr>
-          <td>Date</td>
+          <td>{{ $t("profile.details.date") }}</td>
           <td>{{ item.receiveDate.toLocaleString() }}</td>
         </tr>
         <tr>
-          <td>Price</td>
+          <td>{{ $t("profile.details.price") }}</td>
           <td class="flex items-center gap-2">
             <CurrencyIcon :currency="item.gift.currency" filled />
             <span> {{ item.gift.price }} {{ item.gift.currency }} </span>
           </td>
         </tr>
         <tr>
-          <td>Availability</td>
-          <td>{{ item.gift.available }} of {{ item.gift.totalSupply }}</td>
+          <td>{{ $t("profile.details.availability") }}</td>
+          <td>
+            {{
+              $t("profile.details.amount", {
+                available: item.gift.available,
+                total: item.gift.totalSupply,
+              })
+            }}
+          </td>
         </tr>
       </tbody>
     </table>

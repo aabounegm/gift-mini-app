@@ -53,4 +53,22 @@ export default {
     search: "🔍 Search",
     giftsReceived: "{count} gifts",
   },
+  profile: {
+    received: "{count} gifts received",
+    recent: "Recent actions",
+    empty: {
+      title: "You can buy a gift to receive a gift in return.",
+      action: "Open store",
+    },
+    count: "1 of {total}",
+    details: {
+      close: "Close",
+      title: "Send gift",
+      from: "From",
+      date: "Date",
+      price: "Price",
+      availability: "Availability",
+      amount: "{available} of {total}",
+    },
+  },
 };

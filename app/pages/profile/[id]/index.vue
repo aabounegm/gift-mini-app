@@ -37,7 +37,7 @@ const selectedItem = ref<PopulatedReceivedGift>();
           {{ user.name }}
         </h2>
         <p class="text-subtitle_text_color">
-          {{ user.receivedGifts.length }} gifts received
+          {{ $t("profile.received", { count: user.receivedGifts.length }) }}
         </p>
       </div>
       <!-- <div>Language selector</div> -->
@@ -49,7 +49,7 @@ const selectedItem = ref<PopulatedReceivedGift>();
       class="mx-auto my-4 text-lg flex items-center justify-center gap-1"
     >
       <ClockIcon class="mr-1 inline-block !size-4 !mb-0 text-link_color" />
-      Recent Actions &rsaquo;
+      {{ $t("profile.recent") }} &rsaquo;
     </NuxtLink>
 
     <div class="mt-6">
