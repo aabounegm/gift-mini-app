@@ -31,13 +31,13 @@ const isTransfer = computed(() => transaction.transactionType === "transfer");
       </span>
       <span>
         <span class="text-link_color">
-          {{ transaction.sender.name }}
+          {{ transaction.sender.name }}&nbsp;
         </span>
         <span v-if="isTransfer">
           {{ $t("store.gift.recent.sentTo") }}
           <span class="text-link_color">{{ transaction.recipient.name }}</span>
         </span>
-        <span v-else>&nbsp;{{ $t("store.gift.recent.bought") }}</span>
+        <span v-else>{{ $t("store.gift.recent.bought") }}</span>
       </span>
     </div>
   </li>
