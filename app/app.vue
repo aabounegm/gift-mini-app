@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import { useWebApp } from "vue-tg";
+
+const { initDataUnsafe } = useWebApp();
+const { setLocale, locales } = useI18n();
+
+if (locales.value.includes(initDataUnsafe.user?.language_code)) {
+  // @ts-expect-error matching types is not so straightforward
+  setLocale(initDataUnsafe.user.language_code);
+}
+</script>
+
 <template>
   <NuxtLayout>
     <NuxtPage />
