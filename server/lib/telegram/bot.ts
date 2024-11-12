@@ -46,9 +46,7 @@ bot.on("inline_query", async (ctx) => {
     return ctx.answerInlineQuery([]);
   }
 
-  const args = encodeURIComponent(
-    `gift=${gift.id}&from=${ctx.inlineQuery.from.id}`
-  );
+  const args = `${gift.id}_${ctx.inlineQuery.from.id}`;
   const result = InlineQueryResultBuilder.article(gift.id, "Send gift", {
     thumbnail_url: gift.image,
     description: `Send a gift of ${gift.name}`,

@@ -6,11 +6,7 @@ definePageMeta({
     const { initDataUnsafe } = useWebApp();
 
     if (initDataUnsafe.start_param) {
-      const params = new URLSearchParams(
-        decodeURIComponent(initDataUnsafe.start_param)
-      );
-      const giftId = params.get("gift");
-      const fromUserId = params.get("from");
+      const [giftId, fromUserId] = initDataUnsafe.start_param.split("_");
 
       return `/gifts/${giftId}/received?from=${fromUserId}`;
     }
