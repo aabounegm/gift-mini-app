@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { MainButton } from "vue-tg";
-import usdtFilled from "~/assets/currencies/usdt-filled.svg";
-import tonFilled from "~/assets/currencies/ton-filled.svg";
-import ethFilled from "~/assets/currencies/eth-filled.svg";
 import type { PopulatedReceivedGift } from "~~/shared/types";
 
 defineProps<{
@@ -12,13 +9,6 @@ defineProps<{
 defineEmits<{
   close: [];
 }>();
-
-// TODO: remove code duplication
-const iconMap = {
-  USDT: usdtFilled,
-  TON: tonFilled,
-  ETH: ethFilled,
-};
 </script>
 
 <template>
@@ -47,7 +37,7 @@ const iconMap = {
         <tr>
           <td>Price</td>
           <td class="flex items-center gap-2">
-            <img :src="iconMap[item.gift.currency]" />
+            <CurrencyIcon :currency="item.gift.currency" filled />
             <span> {{ item.gift.price }} {{ item.gift.currency }} </span>
           </td>
         </tr>

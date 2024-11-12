@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useWebApp } from "vue-tg";
 import type { PopulatedReceivedGift, PopulatedUser } from "~~/shared/types";
-import clockIcon from "~/assets/icons/clock.svg";
+import ClockIcon from "~/assets/icons/clock.svg";
 
 const { initData, initDataUnsafe } = useWebApp();
 const { params } = useRoute();
@@ -48,10 +48,7 @@ const selectedItem = ref<PopulatedReceivedGift>();
       :to="`/profile/${user._id}/history`"
       class="mx-auto my-4 text-lg flex items-center justify-center gap-1"
     >
-      <div
-        class="mr-1 inline-block size-4 bg-link_color"
-        :style="{ maskImage: `url(${clockIcon})` }"
-      />
+      <ClockIcon class="mr-1 inline-block !size-4 !mb-0 text-link_color" />
       Recent Actions &rsaquo;
     </NuxtLink>
 

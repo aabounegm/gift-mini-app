@@ -2,10 +2,6 @@
 import { MainButton, BackButton, useWebApp } from "vue-tg";
 import type { Gift } from "~~/shared/types";
 import { compactNumber } from "~~/shared/utils";
-import usdtFilled from "~/assets/currencies/usdt-filled.svg";
-import tonFilled from "~/assets/currencies/ton-filled.svg";
-import ethFilled from "~/assets/currencies/eth-filled.svg";
-import tgPattern from "~/assets/background/telegram-pattern.svg";
 import type { RecentTransaction } from "~/components/store/TransactionItem.vue";
 
 const { initData } = useWebApp();
@@ -21,12 +17,6 @@ const { data: recentActions } = useFetch<RecentTransaction[]>(
     default: () => [],
   }
 );
-
-const iconMap = {
-  USDT: usdtFilled,
-  TON: tonFilled,
-  ETH: ethFilled,
-};
 
 const buyingConfirm = ref(false);
 const loading = ref(false);
@@ -69,7 +59,7 @@ async function buyGift() {
       v-if="gift"
       class="m-4 p-10 rounded-xl"
       :style="{
-        background: `url(${tgPattern}), linear-gradient(${gift.color}33, ${gift.color}1a)`,
+        background: `url(/images/telegram-pattern.svg), linear-gradient(${gift.color}33, ${gift.color}1a)`,
       }"
     >
       <img :src="gift.image" />
@@ -89,7 +79,11 @@ async function buyGift() {
         Purchase this gift for the opportunity to give it to another user.
       </p>
       <span>
-        <img class="size-5 mr-2 inline-block" :src="iconMap[gift.currency]" />
+        <CurrencyIcon
+          :currency="gift.currency"
+          filled
+          class="!size-5 mr-2 inline-block"
+        />
         <span class="align-middle">{{ gift.price }} {{ gift.currency }}</span>
       </span>
     </main>

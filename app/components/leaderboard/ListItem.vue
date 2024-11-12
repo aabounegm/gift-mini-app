@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LeaderboardUser } from "~~/shared/types";
-import giftIcon from "~/assets/icons/gift.svg";
+import GiftIcon from "~/assets/icons/gift.svg";
 
 defineProps<{
   user: LeaderboardUser;
@@ -15,11 +15,10 @@ defineProps<{
       <div class="flex-grow">
         <p class="text-lg">{{ user.name }}</p>
         <p class="text-button_color text-sm">
-          <span
-            :style="{ maskImage: `url(${giftIcon})`, maskSize: '100%' }"
-            class="inline-block bg-button_color size-3 mr-1"
-          />
-          {{ user.receivedGiftsCount }} gifts
+          <GiftIcon class="inline-block text-button_color !size-3 !mb-0 mr-1" />
+          <span class="align-middle">
+            {{ user.receivedGiftsCount }} gifts
+          </span>
         </p>
       </div>
       <span class="text-xl" v-if="position === 1">🥇</span>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useWebApp } from "vue-tg";
 import type { HistoryItem, HistoryItemTransfer } from "~~/shared/types";
-import sendIcon from "~/assets/icons/send.svg";
-import receiveIcon from "~/assets/icons/receive.svg";
-import buyIcon from "~/assets/icons/buy.svg";
+import SendIcon from "~/assets/icons/send.svg";
+import ReceiveIcon from "~/assets/icons/receive.svg";
+import BuyIcon from "~/assets/icons/buy.svg";
 
 const { item } = defineProps<{
   item: HistoryItem;
@@ -25,9 +25,9 @@ const operationType = computed(() => {
 });
 
 const iconMap = {
-  bought: buyIcon,
-  sent: sendIcon,
-  received: receiveIcon,
+  bought: BuyIcon,
+  sent: SendIcon,
+  received: ReceiveIcon,
 };
 </script>
 
@@ -35,9 +35,10 @@ const iconMap = {
   <li class="flex gap-3 p-2 items-center">
     <div class="size-10 relative bg-secondary_bg_color rounded-xl">
       <img :src="item.gift.image" class="p-1" />
-      <img
-        :src="iconMap[operationType]"
-        class="absolute bottom-0 -right-1 size-4"
+      <component
+        :is="iconMap[operationType]"
+        filled
+        class="absolute bottom-0 -right-1 !mb-0"
       />
     </div>
     <div class="grow">

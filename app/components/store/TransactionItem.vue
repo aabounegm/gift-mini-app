@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Transaction, User } from "~~/shared/types";
-import sendIcon from "~/assets/icons/send.svg";
-import buyIcon from "~/assets/icons/buy.svg";
+import SendIcon from "~/assets/icons/send.svg";
+import BuyIcon from "~/assets/icons/buy.svg";
 
 export type RecentTransaction = Transaction & {
   sender: Pick<User, "name" | "profilePicture" | "_id">;
@@ -22,10 +22,8 @@ const isTransfer = computed(() => transaction.transactionType === "transfer");
         class="size-10 rounded-full mr-1"
         :src="transaction.sender.profilePicture"
       />
-      <img
-        :src="isTransfer ? sendIcon : buyIcon"
-        class="absolute bottom-0 right-0"
-      />
+      <SendIcon v-if="isTransfer" filled class="absolute bottom-0 right-0" />
+      <BuyIcon v-else filled class="absolute bottom-0 right-0" />
     </div>
     <div class="flex flex-col">
       <span class="text-sm text-subtitle_text_color font-light">

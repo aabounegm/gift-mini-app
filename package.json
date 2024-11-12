@@ -15,6 +15,7 @@
     "grammy": "^1.31.0",
     "nuxt": "^3.14.159",
     "nuxt-mongoose": "^1.0.6",
+    "nuxt-svgo": "^4.0.8",
     "vue": "latest",
     "vue-router": "latest",
     "vue-tg": "^0.8.0",

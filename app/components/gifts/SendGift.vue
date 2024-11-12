@@ -1,19 +1,10 @@
 <script setup lang="ts">
 import { MainButton, useWebAppNavigation } from "vue-tg";
-import usdtFilled from "~/assets/currencies/usdt-filled.svg";
-import tonFilled from "~/assets/currencies/ton-filled.svg";
-import ethFilled from "~/assets/currencies/eth-filled.svg";
 import type { Gift } from "~~/shared/types";
 
 defineProps<{
   gift: Gift;
 }>();
-
-const iconMap = {
-  USDT: usdtFilled,
-  TON: tonFilled,
-  ETH: ethFilled,
-};
 
 const { switchInlineQuery } = useWebAppNavigation();
 </script>
@@ -40,7 +31,11 @@ const { switchInlineQuery } = useWebAppNavigation();
         <tr>
           <td>Price</td>
           <td>
-            <img :src="iconMap[gift.currency]" class="inline mr-1" />
+            <CurrencyIcon
+              :currency="gift.currency"
+              filled
+              class="inline mr-1"
+            />
             {{ gift.price }} {{ gift.currency }}
           </td>
         </tr>

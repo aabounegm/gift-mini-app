@@ -10,7 +10,7 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-mongoose"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-mongoose", "nuxt-svgo"],
   future: {
     compatibilityVersion: 4,
   },
