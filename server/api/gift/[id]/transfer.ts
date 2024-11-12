@@ -82,7 +82,7 @@ export default defineEventHandler(async (event) => {
 
     // Remove the gift from the receiver's "ownedGifts" array
     const giftIdx = sender.ownedGifts.findIndex(
-      (ownedGift) => ownedGift.gift === gift.id
+      (ownedGift) => ownedGift.gift.toString() === gift.id
     );
     sender.ownedGifts.splice(giftIdx, 1);
     sender.save();
