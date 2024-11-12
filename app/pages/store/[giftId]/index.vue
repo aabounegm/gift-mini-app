@@ -44,12 +44,21 @@ async function buyGift() {
     <BackButton @click="$router.back()" />
     <MainButton
       v-if="buyingConfirm"
-      :text="`Pay ${gift?.price} ${gift?.currency}`"
+      :text="
+        $t('store.gift.pay', {
+          amount: gift?.price,
+          currency: gift?.currency,
+        })
+      "
       :progress="loading"
       :disabled="loading"
       @click="buyGift"
     />
-    <MainButton v-else text="Buy gift" @click="buyingConfirm = true" />
+    <MainButton
+      v-else
+      :text="$t('store.gift.buy')"
+      @click="buyingConfirm = true"
+    />
 
     <BottomSheet v-model="buyingConfirm">
       <StoreGiftInvoice v-if="gift" :gift="gift" />
@@ -71,12 +80,16 @@ async function buyGift() {
         <span
           class="supply-chip relative text-button_color text-sm align-middle ml-3 py-1 px-2 rounded-full"
         >
-          {{ compactNumber(gift.available) }} of
-          {{ compactNumber(gift.totalSupply) }}
+          {{
+            $t("store.gift.amount", {
+              remaining: compactNumber(gift.available),
+              total: compactNumber(gift.totalSupply),
+            })
+          }}
         </span>
       </h1>
       <p class="text-subtitle_text_color my-2">
-        Purchase this gift for the opportunity to give it to another user.
+        {{ $t("store.gift.subtitle") }}
       </p>
       <span>
         <CurrencyIcon
@@ -91,7 +104,9 @@ async function buyGift() {
     <hr class="h-3 bg-secondary_bg_color border-bg_color" />
 
     <footer class="m-4" v-if="recentActions.length > 0">
-      <h1 class="text-section_header_text_color mb-2">Recent actions</h1>
+      <h1 class="text-section_header_text_color mb-2">
+        {{ $t("store.gift.recent.title") }}
+      </h1>
       <ul>
         <StoreTransactionItem
           v-for="transaction in recentActions"

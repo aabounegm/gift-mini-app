@@ -10,8 +10,8 @@ const { data: gifts } = useFetch("/api/gifts", {
   <div>
     <header class="text-center px-2 py-6">
       <GiftIcon class="text-button_color mx-auto !size-12" />
-      <h1 class="text-2xl font-semibold my-2">Buy and send gifts</h1>
-      <p>Unique gifts for everyone by Crypto Pay.</p>
+      <h1 class="text-2xl font-semibold my-2">{{ $t("store.main.title") }}</h1>
+      <p>{{ $t("store.main.subtitle") }}</p>
     </header>
     <main class="grid grid-cols-2 gap-4 p-4">
       <StoreGiftCard v-for="gift in gifts" :gift />

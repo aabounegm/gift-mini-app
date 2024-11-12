@@ -27,17 +27,17 @@ const isTransfer = computed(() => transaction.transactionType === "transfer");
     </div>
     <div class="flex flex-col">
       <span class="text-sm text-subtitle_text_color font-light">
-        {{ isTransfer ? "Send gift" : "Buy gift" }}
+        {{ $t(`store.gift.recent.${isTransfer ? "send" : "buy"}`) }}
       </span>
       <span>
         <span class="text-link_color">
           {{ transaction.sender.name }}
         </span>
         <span v-if="isTransfer">
-          sent gift to
+          {{ $t("store.gift.recent.sentTo") }}
           <span class="text-link_color">{{ transaction.recipient.name }}</span>
         </span>
-        <span v-else> bought gift</span>
+        <span v-else>&nbsp;{{ $t("store.gift.recent.bought") }}</span>
       </span>
     </div>
   </li>

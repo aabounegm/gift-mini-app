@@ -14,8 +14,12 @@ defineProps<{ gift: Gift }>();
     }"
   >
     <p class="text-right opacity-50">
-      {{ compactNumber(gift.available) }} of
-      {{ compactNumber(gift.totalSupply) }}
+      {{
+        $t("store.gift.amount", {
+          remaining: compactNumber(gift.available),
+          total: compactNumber(gift.totalSupply),
+        })
+      }}
     </p>
     <img class="size-28 mx-auto" :src="gift.image" />
     <p class="text-lg font-semibold text-center">{{ gift.name }}</p>

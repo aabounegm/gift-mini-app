@@ -8,10 +8,10 @@ defineProps<{ gift: Gift }>();
 <template>
   <div class="flex flex-col gap-2 justify-center h-full text-center py-4">
     <img :src="balloonsImg" class="balloon size-32 p-4 mx-auto rounded-full" />
-    <h1 class="text-lg">Invoice from Gift App</h1>
+    <h1 class="text-lg">{{ $t("store.gift.invoice.title") }}</h1>
     <p class="font-bold text-3xl">{{ gift.price }} {{ gift.currency }}</p>
     <p class="text-hint_color">${{ gift.price }}</p>
-    <p>Purchasing a {{ gift.name }} gift</p>
+    <p>{{ $t("store.gift.invoice.subtitle", { name: gift.name }) }}</p>
   </div>
 </template>
 
