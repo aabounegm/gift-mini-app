@@ -4,24 +4,26 @@ import GiftIcon from "~/assets/icons/gift.svg";
 import LeaderboardIcon from "~/assets/icons/earth.svg";
 import ProfileIcon from "~/assets/icons/profile.svg";
 
+const { t } = useI18n();
+
 const links = [
   {
-    text: "Store",
+    text: t("footerLinks.store"),
     to: "/store",
     icon: StoreIcon,
   },
   {
-    text: "Gifts",
+    text: t("footerLinks.gifts"),
     to: "/gifts",
     icon: GiftIcon,
   },
   {
-    text: "Leaderboard",
+    text: t("footerLinks.leaderboard"),
     to: "/leaderboard",
     icon: LeaderboardIcon,
   },
   {
-    text: "Profile",
+    text: t("footerLinks.profile"),
     to: "/profile",
     icon: ProfileIcon,
   },
