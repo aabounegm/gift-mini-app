@@ -78,14 +78,14 @@ export default defineEventHandler(async (event) => {
       sender: sender.id,
       receiveDate: new Date(),
     });
-    receiver.save();
+    await receiver.save();
 
     // Remove the gift from the receiver's "ownedGifts" array
     const giftIdx = sender.ownedGifts.findIndex(
       (ownedGift) => ownedGift.gift.toString() === gift.id
     );
     sender.ownedGifts.splice(giftIdx, 1);
-    sender.save();
+    await sender.save();
 
     // Store a transaction
     const transaction = await TransactionModel.create({
