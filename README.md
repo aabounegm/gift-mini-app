@@ -8,6 +8,8 @@ Notable features include:
 - 🌐 i18n: the app detects the user's preferred language from the Telegram app (supports English and Russian).
 - 📱 Responsive design: the app is optimized for mobile devices.
 
+The design can be found in this [Figma file](https://www.figma.com/design/yXbgwwUeLIiIYneiH9WnkZ/Crypto-Bot-Contest).
+
 ## Screenshots
 
 |  | |  |  |
