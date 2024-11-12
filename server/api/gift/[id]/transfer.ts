@@ -48,7 +48,11 @@ export default defineEventHandler(async (event) => {
     return { message: "Sender not found" };
   }
 
-  if (!sender.ownedGifts.includes(gift.id)) {
+  if (
+    !sender.ownedGifts.some(
+      (ownedGift) => (ownedGift.gift as string) === gift.id
+    )
+  ) {
     setResponseStatus(event, 400);
     return {
       message: "Sender does not own this gift. Did you already accept it?",
