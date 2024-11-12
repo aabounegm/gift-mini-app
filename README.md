@@ -1,75 +1,49 @@
-# Nuxt Minimal Starter
+# Gift Bot - Telegram Mini App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Gift Bot is a Telegram mini app that allows users to buy and send gifts to their friends.
+It is developed using [Nuxt.js](https://nuxtjs.org) and [Tailwind CSS](https://tailwindcss.com) for the purpose of the Crypto Bot contest.
 
-## Setup
+Notable features include:
+- 🎨 Native Telegram theme: the app adapts to the theme variables injected by Telegram
+- 🌐 i18n: the app detects the user's preferred language from the Telegram app (supports English and Russian).
+- 📱 Responsive design: the app is optimized for mobile devices.
 
-Make sure to install dependencies:
+## Screenshots
+
+|  | |  |  |
+|:-----:|:-----:|:-----------:|:-------:|
+| ![](./screenshots/store_main_light.jpg) | ![](./screenshots/gifts_light.jpg) | ![](./screenshots/leaderboard_light.jpg) | ![](./screenshots/profile_light.jpg) |
+| ![](./screenshots/store_gift_light.jpg) | ![](./screenshots/gift_send_light.jpg) | ![](./screenshots/gift_bought_dark.jpg) | ![](./screenshots/gift_send_dark.jpg) |
+| ![](./screenshots/gifts_dark.jpg) | ![](./screenshots/leaderboard_dark.jpg) | ![](./screenshots/store_gift_dark.jpg) | ![](./screenshots/store_main_dark.jpg) |
+
+## Running
+
+First, make sure to install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Then, you can start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+This will run the application in development mode with hot reloading.
+However, you will need to set up a Telegram bot (using BotFather) and a MongoDB database to run the application.
+After that, you can set the following environment variables:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+NUXT_TELEGRAM_BOT_TOKEN=<token from bot father>
+NUXT_TELEGRAM_API_SECRET=<password set in webhook secret_token param>
+MONGODB_URI=mongodb+srv://<username>:<password>@<project>.mongodb.net/?retryWrites=true
 ```
 
-Locally preview production build:
+## Directory Structure
 
-```bash
-# npm
-npm run preview
+Since this is a Nuxt project (even with SSR turned off), the server and client code are mixed together.
+The frontend is found in the [`app`](./app) directory, while the backend is found in the [`server`](./server) directory.
+They are both served by the same server, which is started by Nuxt.
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Additionally, the translations can be found in the [`i18n/locales`](./i18n/locales) folder.
