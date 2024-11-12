@@ -15,13 +15,13 @@ export interface Gift {
 }
 
 export interface OwnedGift {
-  _id: string;
+  _id?: string;
   gift: Gift | Gift["_id"];
   purchaseDate: Date;
 }
 
 export interface ReceivedGift {
-  _id: string;
+  _id?: string;
   gift: Gift | Gift["_id"];
   sender: User | User["_id"];
   receiveDate: Date;
@@ -73,3 +73,15 @@ export interface BuyTransaction extends TransactionBase {
 }
 
 export type Transaction = TransferTransaction | BuyTransaction;
+
+type HistoryItemBase = TransactionBase & {
+  sender: Pick<User, "_id" | "name" | "profilePicture">;
+  gift: Pick<Gift, "_id" | "name" | "price" | "currency" | "image">;
+};
+export type HistoryItemBuy = HistoryItemBase & BuyTransaction;
+export type HistoryItemTransfer = HistoryItemBase &
+  TransferTransaction & {
+    recipient: Pick<User, "_id" | "name" | "profilePicture">;
+  };
+
+export type HistoryItem = HistoryItemBuy | HistoryItemTransfer;

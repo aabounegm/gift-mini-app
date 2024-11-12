@@ -3,7 +3,7 @@ import { useWebApp } from "vue-tg";
 import type { PopulatedReceivedGift, PopulatedUser } from "~~/shared/types";
 import clockIcon from "~/assets/icons/clock.svg";
 
-const { initData } = useWebApp();
+const { initData, initDataUnsafe } = useWebApp();
 const { params } = useRoute();
 
 const { data: user } = useFetch<PopulatedUser>(`/api/users/${params.id}`, {
@@ -44,6 +44,7 @@ const selectedItem = ref<PopulatedReceivedGift>();
     </header>
 
     <NuxtLink
+      v-if="user._id === initDataUnsafe.user?.id"
       :to="`/profile/${user._id}/history`"
       class="mx-auto my-4 text-lg flex items-center justify-center gap-1"
     >
