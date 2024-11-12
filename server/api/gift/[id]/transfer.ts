@@ -48,11 +48,11 @@ export default defineEventHandler(async (event) => {
     return { message: "Sender not found" };
   }
 
-  if (
-    !sender.ownedGifts.some(
-      (ownedGift) => ownedGift.gift.toString() === gift.id
-    )
-  ) {
+  const giftIdx = sender.ownedGifts.findIndex(
+    (ownedGift) => ownedGift.gift.toString() === gift.id
+  );
+
+  if (giftIdx === -1) {
     setResponseStatus(event, 400);
     return {
       message: "Sender does not own this gift. Did you already accept it?",
@@ -81,9 +81,6 @@ export default defineEventHandler(async (event) => {
     await receiver.save();
 
     // Remove the gift from the receiver's "ownedGifts" array
-    const giftIdx = sender.ownedGifts.findIndex(
-      (ownedGift) => ownedGift.gift.toString() === gift.id
-    );
     sender.ownedGifts.splice(giftIdx, 1);
     await sender.save();
 
