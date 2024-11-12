@@ -59,7 +59,8 @@ bot.on("inline_query", async (ctx) => {
   }).text(`🎁 I have a gift for you! Tap the button below to open it.`);
 
   await ctx.answerInlineQuery([result], {
-    cache_time: import.meta.dev ? 0 : 300,
+    // cache_time: import.meta.dev ? 0 : 300,
+    cache_time: 0,
   });
 });
 
