@@ -24,9 +24,12 @@ onMounted(async () => {
       },
     });
   } catch (error) {
-    showAlert(`Failed to accept the gift: ${(error as Error).message}`, () => {
-      router.replace("/profile");
-    });
+    showAlert(
+      `Failed to accept the gift: ${(error as any).data.message}`,
+      () => {
+        router.replace("/profile");
+      }
+    );
   }
 });
 </script>
