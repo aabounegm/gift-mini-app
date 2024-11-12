@@ -20,7 +20,7 @@ const filteredUsers = computed(() =>
   <main class="p-3">
     <input
       v-model="search"
-      placeholder="🔍 Search"
+      :placeholder="$t('leaderboard.search')"
       class="text-center w-full bg-secondary_bg_color rounded-xl p-2"
     />
     <hr class="my-2" />

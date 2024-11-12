@@ -50,4 +50,8 @@ export default {
       action: "Открыть магазин",
     },
   },
+  leaderboard: {
+    search: "🔍 Поиск",
+    giftsReceived: "{count} подарков",
+  },
 };

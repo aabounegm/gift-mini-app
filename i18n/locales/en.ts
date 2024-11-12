@@ -49,4 +49,8 @@ export default {
       action: "Open store",
     },
   },
+  leaderboard: {
+    search: "🔍 Search",
+    giftsReceived: "{count} gifts",
+  },
 };

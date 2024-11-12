@@ -17,7 +17,11 @@ defineProps<{
         <p class="text-button_color text-sm">
           <GiftIcon class="inline-block text-button_color !size-3 !mb-0 mr-1" />
           <span class="align-middle">
-            {{ user.receivedGiftsCount }} gifts
+            {{
+              $t("leaderboard.giftsReceived", {
+                count: user.receivedGiftsCount,
+              })
+            }}
           </span>
         </p>
       </div>
